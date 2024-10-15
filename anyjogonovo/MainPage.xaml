@@ -3,34 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="anyjogonovo.MainPage">
  <Grid>
-       <Image Source="passarofeliz.png"
-              Aspect="AspectFill"/>
+        <Image Source="passarocolorido.png"
+               Opacity=".8"
+               Aspect="AspectFill"/>
 
-       <Label Text="bird adventure"
-              TextColor="black"
-              Margin="20,170,20,0"
-              FontSize="30"
-              LineHeight="1.5"
-              HorizontalOptions="Center"
-              HorizontalTextAlignment="Center"
-              VerticalOptions="Center"/>
+        <Label Text="Flying bird"
+               TextColor="#2f2f36"
+               Margin="20,120,20,0"
+               FontSize="50"
+               LineHeight="1.5"
+               HorizontalOptions="Center"
+               HorizontalTextAlignment="Center"
+               VerticalOptions="Start"/>
 
-       <VerticalStackLayout
-              VerticalOptions="End"
-              Spacing="15"
-              Margin="15,0,15,40"/>
+        <VerticalStackLayout
+            VerticalOptions="End"
+            Spacing="15"
+            Margin="15,0,15,40">
 
-  <Button  Text="Iniciar"
-           Clicked="BotaoIniciar"
-           HeightRequest="50"
-           CornerRadius="25"
-           BackgroundColor="black"
-           TextColor="White"
-           BorderWidth="1"
-           BorderColor="White"
-           Margin="0,0,0,10"
-           FontSize="18"
-           VerticalOptions="End"/>
- </Grid>
+            <Button  Text="Iniciar"
+                     Clicked="BotaoIniciarFoiClicado"
+                     HeightRequest="50"
+                     CornerRadius="25"
+                     BackgroundColor="#2f2f36"
+                     TextColor="White"
+                     BorderWidth="1"
+                     BorderColor="White"
+                     Margin="0,0,0,10"
+                     FontSize="18"/>
+        </VerticalStackLayout>
+    </Grid>
+
+
 </ContentPage>
-           
