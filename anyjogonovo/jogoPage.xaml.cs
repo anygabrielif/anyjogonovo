@@ -2,6 +2,7 @@ namespace anyjogonovo;
 
 public partial class JogoPage : ContentPage
 {
+    const int aberturaMinima = 200;
     const int gravidade = 30;
     const int tempoEntreFrames = 25;
     bool estaMorto = false;
@@ -27,34 +28,36 @@ public partial class JogoPage : ContentPage
             estaPulando = false;
             tempoPulando = 0;
         }
-        void AplicaGravidade()
-        {
-            imgpassaro.TranslationY += gravidade;
-        }
 
-        async Task Desenhar()
+    }
+    void AplicaGravidade()
+    {
+        imgpassaro.TranslationY += gravidade;
+    }
+
+    async Task Desenhar()
+    {
+        while (!estaMorto)
         {
-            while (!estaMorto)
+            if (estaPulando)
+                AplicaPulo();
+            else
+                AplicaGravidade();
+            await Task.Delay(tempoEntreFrames);
+            GerenciaCanos();
+            if (VerificaColisao())
             {
-                if (estaPulando)
-                    AplicaPulo();
-                else
-                    AplicaGravidade();
-                await Task.Delay(tempoEntreFrames);
-                GerenciaCanos();
-                if (VerificaColisao())
-                {
-                    estaMorto = true;
-                    frameGameOver.IsVisible = true;
-                    break;
-                }
-                await Task.Delay(tempoEntreFrames);
+                estaMorto = true;
+                frameGameOver.IsVisible = true;
+                break;
             }
+            await Task.Delay(tempoEntreFrames);
         }
 
 
 
 
+    }
     protected override void OnSizeAllocated(double w, double h)
     {
         base.OnSizeAllocated(w, h);
@@ -68,8 +71,12 @@ public partial class JogoPage : ContentPage
         CanoDeBaixo.TranslationX -= velocidade;
         if (CanoDeBaixo.TranslationX <= -larguraJanela)
         {
-            CanoDeBaixo.TranslationX = 0;
-            CanoDeCima.TranslationX = 0;
+            CanoDeBaixo.TranslationX = 4;
+            CanoDeCima.TranslationX = 4;
+            var alturaMax = -100;
+			var alturaMin = CanoDeBaixo.HeightRequest;
+			CanoDeCima.TranslationY = Random.Shared.Next((int)alturaMin, (int)alturaMax);
+			CanoDeBaixo.TranslationY = CanoDeCima.TranslationY + aberturaMinima + CanoDeBaixo.HeightRequest;
 
         }
 
