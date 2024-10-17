@@ -7,9 +7,9 @@
                Opacity=".8"
                Aspect="AspectFill"/>
 
-        <Label Text="Flying bird"
+        <Label Text="Adventure Bird"
                TextColor="#2f2f36"
-               Margin="20,120,20,0"
+               Margin="20,270,20,0"
                FontSize="50"
                LineHeight="1.5"
                HorizontalOptions="Center"
@@ -29,7 +29,7 @@
                      TextColor="White"
                      BorderWidth="1"
                      BorderColor="White"
-                     Margin="0,0,0,10"
+                     Margin="0,10,10,10"
                      FontSize="18"/>
         </VerticalStackLayout>
     </Grid>
