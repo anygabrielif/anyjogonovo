@@ -11,6 +11,6 @@ public partial class MainPage : ContentPage
 
 	private async void BotaoIniciarFoiClicado(object sender, EventArgs e)
 	{
-		await Navigation.PushAsync(new JogoPage());
+		await Navigation.PushAsync(new JoPage());
 	}
 }

@@ -1,6 +1,6 @@
 namespace anyjogonovo;
 
-public partial class JogoPage : ContentPage
+public partial class JoPage : ContentPage
 {
     const int aberturaMinima = 200;
     const int gravidade = 30;
@@ -14,7 +14,7 @@ public partial class JogoPage : ContentPage
     bool estaPulando = false;
     const int forcaPulo = 60;
 
-    public JogoPage()
+    public JoPage()
     {
         InitializeComponent();
     }
